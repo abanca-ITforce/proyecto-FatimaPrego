@@ -1,2 +1,15 @@
-<p>home works!</p>
-<p>LISTA DE PAISES</p>
+<mat-card-header>
+  <mat-card-title>Countries List</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+  <mat-nav-list role="list" *ngIf="countryList$ | async as countryList; else empty">
+    <ng-container *ngFor="let country of countryList">
+      <mat-list-item [routerLink]="country.id">{{ country.name }}</mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-nav-list>
+  <ng-template #empty>
+      <h1>LOAD...</h1>
+    </ng-template>
+</mat-card-content>
+
