@@ -1,18 +1,18 @@
 import { Component, OnInit } from "@angular/core";
-import { DataCountriesService } from "../data-countries.service";
 import { Observable } from "rxjs";
+import { ApiService } from "../api.service";
 
 @Component({
-  selector: "ab-home",
+  selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  countryList$: Observable<any[]>;
+  countries$: Observable<any[]>;
 
-  constructor(private dataService: DataCountriesService) {
-    this.countryList$ = this.dataService.getCoutries$();
+  constructor(private api: ApiService) {}
+
+  ngOnInit() {
+    this.countries$ = this.api.getAllCountries$();
   }
-
-  ngOnInit() {}
 }
