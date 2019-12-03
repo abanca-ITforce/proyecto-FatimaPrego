@@ -1,1 +1,13 @@
-<p>regions works!</p>
+<mat-card-header>
+  <mat-card-title>Regions List</mat-card-title>
+</mat-card-header>
+<mat-card-content>
+  <ab-regions-list
+    *ngIf="regions$ | async as regions; else empty"
+    [regions]="regions"
+  ></ab-regions-list>
+
+  <ng-template #empty>
+    Loading...
+  </ng-template>
+</mat-card-content>
