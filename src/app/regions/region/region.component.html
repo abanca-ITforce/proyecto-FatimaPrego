@@ -1,2 +1,7 @@
-<p>region works!</p>
-<ab-region-card></ab-region-card>
+<ab-region-card *ngIf="region$ | async as region; else empty" [region]="region">
+</ab-region-card>
+<app-countries-list
+    *ngIf="regionCountries$ | async as regionCountries; else empty"
+    [countries]="regionCountries"
+  ></app-countries-list>
+  <ng-template #empty>Loading...</ng-template>

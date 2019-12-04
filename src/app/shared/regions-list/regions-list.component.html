@@ -1,5 +1,5 @@
 <mat-nav-list>
-  <mat-list-item [routerLink]="['regions', region.id]" *ngFor="let region of regions">
+  <mat-list-item [routerLink]="['regions', region.code]" *ngFor="let region of regions">
     {{ region.name }}
     <mat-divider></mat-divider>
   </mat-list-item>
