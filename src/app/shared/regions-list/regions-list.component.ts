@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RegionsListComponent implements OnInit {
 @Input() regions: any[];
+@Input() isAbsolute = true;
+
   constructor() { }
 
   ngOnInit() {

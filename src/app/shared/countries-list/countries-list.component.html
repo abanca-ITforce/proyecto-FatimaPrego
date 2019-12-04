@@ -1,6 +1,12 @@
 <mat-nav-list>
-  <mat-list-item [routerLink]="['/','countries', country.id]" *ngFor="let country of countries">
+  <mat-list-item [routerLink]="[isAbsolute?'/':'','countries', country.id]" *ngFor="let country of countries">
     {{ country.name }}
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-nav-list>
+
+<!-- <mat-list-item [routerLink]="['/','countries', country.id]" *ngFor="let country of countries">
+  {{ country.name }}
+  <mat-divider></mat-divider> -->
+
+  <!-- [isAbsolute?'/':'' => isAbsolute == true, pone la barra, else, sin barra -->

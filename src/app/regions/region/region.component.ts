@@ -14,7 +14,7 @@ export class RegionComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit() {
-    console.log(this.activatedRoute.snapshot.params.regionCode);
+    //console.log(this.activatedRoute.snapshot.params.regionCode);
     const regionCode = this.activatedRoute.snapshot.params.regionCode;
     this.regionCountries$ = this.api.getCountriesByRegionCode$(regionCode);
     this.region$ = this.api.getRegionByCode$(regionCode);
