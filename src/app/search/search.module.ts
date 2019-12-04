@@ -7,8 +7,7 @@ import { SearchCardComponent } from './search-card/search-card.component';
 import { MatCardModule } from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { SharedModule } from '../shared/shared.module';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SearchComponent, SearchCardComponent],
@@ -17,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
     SearchRoutingModule,
     MatCardModule,
     MatSelectModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class SearchModule { }

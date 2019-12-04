@@ -1,14 +1,19 @@
+<form [formGroup]="searchForm" novalidate (ngSubmit)="onSubmit()">
 <mat-card>
   <mat-card-header>
     <mat-card-title> SEARCH:  </mat-card-title>
     <mat-card-subtitle> </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-   <mat-select placeholder="Select the incoming level" formControlName="selectType">
+   <mat-select placeholder="Select the incoming level" formControlName="selectIncoming">
     <mat-option *ngFor="let incoming of incomings" [value]="incoming.value">
       {{incoming.value}}
     </mat-option>
   </mat-select>
-
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit" >Search</button>
+  </mat-card-actions>
+  </mat-card>
+</form>
 
