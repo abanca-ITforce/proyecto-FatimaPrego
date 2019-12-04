@@ -41,4 +41,11 @@ export class ApiService {
     //console.log(url);
     return this.httpClient.get<any>(url).pipe(map(result => result[1][0]));
   }
+
+  getIncomingLevel$(){
+    const url = 'https://api.worldbank.org/v2/incomeLevel/?format=json';
+    return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
+
+
+  }
 }
