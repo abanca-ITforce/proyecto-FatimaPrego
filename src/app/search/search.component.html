@@ -1,5 +1,5 @@
-<ab-search-card *ngIf="incomings$ | async as incomings; else empty"
-[incomings]="incomings" (search) = 'onSearch($event)'
+<ab-search-card
+[incomings]="(incomings$ | async )" [debts]="(debts$ | async ) " (search) = 'onSearch($event, $event)'
 ></ab-search-card>
 <app-countries-list
     *ngIf="incomingCountries$ | async as incomingCountries; else empty"
@@ -8,3 +8,4 @@
 <ng-template #empty>
   Loading...
 </ng-template>
+

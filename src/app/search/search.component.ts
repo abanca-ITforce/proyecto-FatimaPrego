@@ -12,6 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchComponent implements OnInit {
   incomings$: Observable<any[]>;
   incomingCountries$;
+  debts$: Observable<any[]>;
+
+
 
   //falta recoger el @output
 
@@ -22,18 +25,18 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.incomings$ = this.api.getIncomingLevel$();
-    //this.incomingCountries$ = this.api.getCountriesByIncomingSelect$();
-    //pasar el id del select seleccionado
+    this.debts$ = this.api.getDebtType$();
+
+
 
   }
 
   onSearch(values){
-    //console.log(values);
+    console.log(values);
     //console.log(values.selectIncoming)
     const incomingValue = values.selectIncoming;
-    this.incomingCountries$ = this.api.getCountriesByIncomingSelect$(incomingValue);
-    console.log(this.incomingCountries$);
-
+    const debtValue = values.selectDebt;
+    this.incomingCountries$ = this.api.getCountriesByIncomingSelect$(incomingValue, debtValue);
   }
 
 

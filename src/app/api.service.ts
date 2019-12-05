@@ -47,10 +47,16 @@ export class ApiService {
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
 
-  getCountriesByIncomingSelect$(incomingId){
-    //console.log(incomingId);
-    const url = this.endPoint + '?incomeLevel=' + incomingId + this.endRegionUrl;
+  getCountriesByIncomingSelect$(incomingId, debtId){
+    console.log(incomingId);
+    console.log(debtId);
+    const url = this.endPoint + '?incomeLevel=' + incomingId + '&lendingType=' + debtId + this.endRegionUrl;
     console.log(url);
     return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
+  }
+
+  getDebtType$(){
+    const url = 'https://api.worldbank.org/v2/lendingType/?format=json';
+    return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
 }

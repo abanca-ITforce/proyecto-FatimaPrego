@@ -10,6 +10,11 @@
       {{incoming.value}}
     </mat-option>
   </mat-select>
+  <mat-select placeholder="Select the type of debt" formControlName="selectDebt">
+    <mat-option *ngFor="let debt of debts" [value]="debt.id">
+      {{debt.value}}
+    </mat-option>
+  </mat-select>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" type="submit" >Search</button>

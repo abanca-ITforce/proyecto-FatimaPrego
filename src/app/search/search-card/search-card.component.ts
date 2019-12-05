@@ -10,11 +10,14 @@ export class SearchCardComponent implements OnInit{
   searchForm: FormGroup;
 
   @Input() incomings: any[];
+  @Input() debts: any[];
+
   @Output() search = new EventEmitter<any>();
 
   constructor(formBuilder: FormBuilder) {
     this.searchForm = formBuilder.group({
-      selectIncoming: [null, []]
+      selectIncoming: [null, []],
+      selectDebt: [null, []]
     });
   }
 
