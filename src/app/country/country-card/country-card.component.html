@@ -1,18 +1,16 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title> COUNTRY: {{ country.name | uppercase}} </mat-card-title>
-    <mat-card-subtitle>Id: {{ country.id }}  </mat-card-subtitle>
+    <mat-card-title> COUNTRY: {{ country.name | uppercase }} </mat-card-title>
+    <mat-card-subtitle>Id: {{ country.id }} </mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
+    <p><u>Datos básicos</u></p>
     <p>Capital: {{ country.capitalCity }}</p>
-    <p>Coordinates: {{ country.latitude }},  {{ country.longitude }}</p>
+    <p>Coordinates: {{ country.latitude }}, {{ country.longitude }}</p>
     <p>Income Level: {{ country.incomeLevel.value }}</p>
+    <p><u>Indicadores avanzados</u></p>
+    <p>Total Population: {{ indicator[0].value }}</p>
+    <p>GDP (current US$): {{ indicator[1].value }}</p>
   </mat-card-content>
-  <!-- <mat-card-actions>
-    <div class="example-button-row">
-      <button mat-raised-button color="primary">Complete</button>
-      <button mat-raised-button color="warn">Cancel</button>
-    </div>
-  </mat-card-actions> -->
 </mat-card>

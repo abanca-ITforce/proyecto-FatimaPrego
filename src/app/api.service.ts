@@ -29,31 +29,31 @@ export class ApiService {
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
 
-  getCountriesByRegionCode$(regionCode){
+  getCountriesByRegionCode$(regionCode) {
     //console.log(regionCode);
     const url = this.countryRegionUrl + regionCode + this.endRegionUrl;
     //console.log(url);
     return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
   }
 
-  getRegionByCode$(regionCode){
+  getRegionByCode$(regionCode) {
     const url = this.regionUrl + '/' + regionCode + this.format;
     //console.log(url);
     return this.httpClient.get<any>(url).pipe(map(result => result[1][0]));
   }
 
-  getIncomingLevel$(){
+  getIncomingLevel$() {
     const url = 'https://api.worldbank.org/v2/incomeLevel/?format=json';
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
   }
 
-  getCountriesByIncomingSelect$(incomingId, debtId){
+  getCountriesByIncomingSelect$(incomingId, debtId) {
     // console.log(incomingId);
     // console.log(debtId);
     let url = this.endPoint;
-    if(incomingId == null){
+    if (incomingId == null) {
       url = url + '?lendingType=' + debtId + this.endRegionUrl;
-    } else if (debtId == null){
+    } else if (debtId == null) {
       url = url + '?incomeLevel=' + incomingId + this.endRegionUrl;
     } else {
       url = url + '?incomeLevel=' + incomingId + '&lendingType=' + debtId + this.endRegionUrl;
@@ -62,8 +62,15 @@ export class ApiService {
     return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
   }
 
-  getDebtType$(){
+  getDebtType$() {
     const url = 'https://api.worldbank.org/v2/lendingType/?format=json';
     return this.httpClient.get<any[]>(url).pipe(map(result => result[1]));
+  }
+
+  getIndicatorsById$(countryId){
+    const endUrl = '/indicators/SP.POP.TOTL;NY.GDP.MKTP.CD/?source=2&date=2018&per_page=1000&format=json';
+    const url = this.endPoint + '/' + countryId + endUrl;
+    return this.httpClient.get<any>(url).pipe(map(result => result[1]));
+
   }
 }

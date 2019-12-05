@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CountryCardComponent implements OnInit {
   @Input() country: any;
+  @Input() indicator: any;
 
   constructor() {}
 
