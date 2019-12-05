@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   incomings$: Observable<any[]>;
-  incomingCountries$: Observable<any>;
+  incomingCountries$;
 
   //falta recoger el @output
 
@@ -26,5 +26,15 @@ export class SearchComponent implements OnInit {
     //pasar el id del select seleccionado
 
   }
+
+  onSearch(values){
+    //console.log(values);
+    //console.log(values.selectIncoming)
+    const incomingValue = values.selectIncoming;
+    this.incomingCountries$ = this.api.getCountriesByIncomingSelect$(incomingValue);
+    console.log(this.incomingCountries$);
+
+  }
+
 
 }

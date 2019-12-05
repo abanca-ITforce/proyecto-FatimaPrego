@@ -6,7 +6,7 @@
   </mat-card-header>
   <mat-card-content>
    <mat-select placeholder="Select the incoming level" formControlName="selectIncoming">
-    <mat-option *ngFor="let incoming of incomings" [value]="incoming.value">
+    <mat-option *ngFor="let incoming of incomings" [value]="incoming.id">
       {{incoming.value}}
     </mat-option>
   </mat-select>

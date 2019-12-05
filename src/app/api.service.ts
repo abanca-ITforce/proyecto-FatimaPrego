@@ -48,9 +48,9 @@ export class ApiService {
   }
 
   getCountriesByIncomingSelect$(incomingId){
-    console.log(incomingId);
+    //console.log(incomingId);
     const url = this.endPoint + '?incomeLevel=' + incomingId + this.endRegionUrl;
     console.log(url);
-    //return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
+    return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
   }
 }

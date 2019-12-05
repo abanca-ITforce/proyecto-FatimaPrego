@@ -1,6 +1,10 @@
 <ab-search-card *ngIf="incomings$ | async as incomings; else empty"
-[incomings]="incomings"
+[incomings]="incomings" (search) = 'onSearch($event)'
 ></ab-search-card>
+<app-countries-list
+    *ngIf="incomingCountries$ | async as incomingCountries; else empty"
+    [countries]="incomingCountries"
+  ></app-countries-list>
 <ng-template #empty>
   Loading...
 </ng-template>
