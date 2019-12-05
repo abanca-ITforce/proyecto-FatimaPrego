@@ -48,9 +48,16 @@ export class ApiService {
   }
 
   getCountriesByIncomingSelect$(incomingId, debtId){
-    console.log(incomingId);
-    console.log(debtId);
-    const url = this.endPoint + '?incomeLevel=' + incomingId + '&lendingType=' + debtId + this.endRegionUrl;
+    // console.log(incomingId);
+    // console.log(debtId);
+    let url = this.endPoint;
+    if(incomingId == null){
+      url = url + '?lendingType=' + debtId + this.endRegionUrl;
+    } else if (debtId == null){
+      url = url + '?incomeLevel=' + incomingId + this.endRegionUrl;
+    } else {
+      url = url + '?incomeLevel=' + incomingId + '&lendingType=' + debtId + this.endRegionUrl;
+    }
     console.log(url);
     return this.httpClient.get<any[]>(url).pipe(map(data => data[1]));
   }
