@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatSelectModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class SearchModule { }

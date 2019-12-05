@@ -1,24 +1,26 @@
 <form [formGroup]="searchForm" novalidate (ngSubmit)="onSubmit()">
-<mat-card>
-  <mat-card-header>
-    <mat-card-title> SEARCH:  </mat-card-title>
-    <mat-card-subtitle> </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-   <mat-select placeholder="Select the incoming level" formControlName="selectIncoming">
-    <mat-option *ngFor="let incoming of incomings" [value]="incoming.id">
-      {{incoming.value}}
-    </mat-option>
-  </mat-select>
-  <mat-select placeholder="Select the type of debt" formControlName="selectDebt">
-    <mat-option *ngFor="let debt of debts" [value]="debt.id">
-      {{debt.value}}
-    </mat-option>
-  </mat-select>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" type="submit" >Search</button>
-  </mat-card-actions>
+  <mat-card class="example-container">
+    <mat-card-header>
+      <mat-card-title> SEARCH: </mat-card-title>
+      <mat-card-subtitle> </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+          <mat-select placeholder="Select the incoming level" formControlName="selectIncoming">
+            <mat-option *ngFor="let incoming of incomings" [value]="incoming.id">
+              {{ incoming.value }}
+            </mat-option>
+          </mat-select>
+
+          <mat-select placeholder="Select the type of debt" formControlName="selectDebt">
+            <mat-option *ngFor="let debt of debts" [value]="debt.id">
+              {{ debt.value }}
+            </mat-option>
+          </mat-select>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Search</button>
+    </mat-card-actions>
   </mat-card>
 </form>
-
